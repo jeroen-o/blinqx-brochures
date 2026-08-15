@@ -33,6 +33,8 @@ elke pagina komt op één vel.
 
 ## Afhankelijkheden
 
-Geen build, geen npm. `ds-styles.css` (typografie en kleurtokens) en
-`doc-page.js` (paginaopmaak en print) staan naast de HTML-bestanden,
-beeldmateriaal in `assets/`.
+Geen build, geen npm. Alle afbeeldingen zitten in de HTML-bestanden zelf, dus
+er kan geen beeld ontbreken door een verkeerd pad. Naast de brochures staan
+alleen `ds-styles.css` (typografie en kleurtokens) en `doc-page.js`
+(paginaopmaak en print) — die twee moeten mee in de repository. De map
+`assets/` is optioneel en alleen voor hergebruik van het beeldmateriaal.
