@@ -38,3 +38,11 @@ er kan geen beeld ontbreken door een verkeerd pad. Naast de brochures staan
 alleen `ds-styles.css` (typografie en kleurtokens) en `doc-page.js`
 (paginaopmaak en print) — die twee moeten mee in de repository. De map
 `assets/` is optioneel en alleen voor hergebruik van het beeldmateriaal.
+
+## Namens Blinqx V & H invullen
+
+Onderaan elke brochure staat een balk **Namens Blinqx V & H**. De velden staan
+voorgevuld met de gegevens van Jeroen Oversteegen. Vul naam, functie,
+e-mailadres, mobiel, vast nummer en adres in en klik Opslaan: de gegevens verschijnen op de
+achterkant van *alle* brochures (ze worden in de browser bewaard). "Standaard"
+zet Jeroen Oversteegen terug. De balk print niet mee en verdwijnt met "Verberg".
