@@ -41,7 +41,8 @@ Compleet & CRM, Partners), met zoekveld en paginatelling. Bovenaan de viewer: vo
 - **Printen** opent de brochure in een nieuw venster en start daar het printvenster. Dat werkt
   ook als de overzichtspagina in een iframe staat (bijv. Google Sites). Sta pop-ups toe.
 - **Sneltoetsen:** `/` zoeken, `[` en `]` vorige/volgende, pijltjes in de lijst.
-- Op mobiel zit de lijst achter de knop **Brochures**.
+- Op mobiel zit de lijst achter de knop **Brochures**. Brochures schalen op smalle schermen
+  automatisch mee (alleen op scherm; printen blijft A4 op ware grootte).
 
 Nieuwe brochure toevoegen: bestand in de root zetten en één regel toevoegen aan `GROUPS`
 bovenin het script van `index.html` (bestandsnaam zonder `.html`, soort, titel, pagina's).
@@ -62,6 +63,22 @@ De losse bestanden zijn ook direct te openen.
 2. Settings → Pages → Source: branch `main`, map `/` (of `/docs`).
 3. De brochures staan op `https://<gebruiker>.github.io/<repo>/`. Het bestand `.nojekyll` staat
    er al in, zodat Jekyll de bestanden niet verwerkt.
+
+## Insluiten in Google Sites
+
+1. Google Sites → **Invoegen → Insluiten → tabblad *Code insluiten***.
+2. Plak:
+   ```html
+   <iframe src="https://jeroen-o.github.io/blinqx-brochures/" style="width:100%;height:900px;border:0" allow="clipboard-write"></iframe>
+   ```
+   Eén brochure direct tonen: zet `#bestandsnaam` achter de URL, bijv. `…/blinqx-brochures/#vcn-partner`.
+3. Klik **Volgende → Invoegen** en sleep het insluitblok op de pagina zo groot mogelijk
+   (volle breedte, flinke hoogte). Brochures schalen automatisch mee met de breedte van het blok.
+4. Publiceer de site opnieuw.
+
+Plak niet de inhoud van `index.html` zelf in Google Sites: die verwijst naar bestanden die
+alleen op GitHub Pages staan en werkt daar dus niet. Printen opent een nieuw venster (pop-ups
+toestaan). Ingevulde “Namens”-gegevens worden in een ingesloten pagina mogelijk niet onthouden.
 
 ## Printen naar PDF
 

@@ -763,4 +763,41 @@
   if (!customElements.get('doc-page')) {
     customElements.define('doc-page', DocPage);
   }
+
+  /* Meeschalen op smalle schermen (mobiel, smalle iframes zoals Google
+   * Sites): is het venster smaller dan het A4-vel plus de marge eromheen,
+   * dan zoomt <doc-page> evenredig uit. Alleen op scherm — printen blijft
+   * op ware grootte. CSS-zoom (i.p.v. transform) laat de lay-out
+   * meekrimpen, dus geen horizontale scroll of lege ruimte eronder. */
+  const FIT_ID = 'doc-page-screen-fit';
+  const fitToScreen = () => {
+    const el = document.querySelector('doc-page');
+    if (!el || typeof el.pageWidth !== 'string') return;
+    let st = document.getElementById(FIT_ID);
+    if (!st) {
+      st = document.createElement('style');
+      st.id = FIT_ID;
+      document.head.appendChild(st);
+    }
+    const need = toPx(el.pageWidth) + 48; // vel + 2 × 24px zijmarge
+    const vw = document.documentElement.clientWidth || window.innerWidth;
+    const z = need > 0 ? Math.min(1, vw / need) : 1;
+    const css = z < 0.999
+      ? '@media screen{doc-page{zoom:' + z.toFixed(4) + '}}'
+      : '';
+    if (st.textContent !== css) st.textContent = css;
+  };
+  let fitRaf = 0;
+  const scheduleFit = () => {
+    cancelAnimationFrame(fitRaf);
+    fitRaf = requestAnimationFrame(fitToScreen);
+  };
+  customElements.whenDefined('doc-page').then(scheduleFit);
+  window.addEventListener('resize', scheduleFit);
+  window.addEventListener('orientationchange', scheduleFit);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleFit);
+  } else {
+    scheduleFit();
+  }
 })();
