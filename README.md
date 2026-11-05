@@ -7,7 +7,7 @@ uit `Blinqx-VH-wijzigingen-was-wordt-v2.xlsx` doorgevoerd (zie `WIJZIGINGEN.md`)
 
 | Bestand | Brochure | Pagina's |
 | --- | --- | --- |
-| `index.html` | Tabbladen-overzicht met printknop | — |
+| `index.html` | Overzichtspagina: gegroepeerde lijst, zoeken, print/PDF, deeplinks | — |
 | `productoverzicht.html` | Productoverzicht | 38 |
 | `eblinqx-vh-compleet.html` | eBlinqx V&H Compleet | 12 |
 | `eblinqx-hypotheek.html` | eBlinqx Hypotheek | 11 |
@@ -20,6 +20,8 @@ uit `Blinqx-VH-wijzigingen-was-wordt-v2.xlsx` doorgevoerd (zie `WIJZIGINGEN.md`)
 | `eblinqx-makelaardij.html` | eBlinqx Makelaardij | 13 |
 | `vcn-partner.html` | VCN Partner (met VCN Hypotheken) | 13 |
 | `blinqx-banking-insurance-partners.html` | Blinqx Banking, Insurance & Partners | 13 |
+| `eblinqx-schadeverzekeringen.html` | Schadeverzekeringen verkopen (thema) | 6 |
+| `mijnhuiszaken.html` | MijnHuiszaken (partnerformule) | 6 |
 
 > **Naamgeving.** Deze set volgt het lagenmodel nog niet volledig. eBlinqx Hypotheek Advies
 > is een product binnen de proposities eBlinqx Hypotheek en eBlinqx V&H Compleet, eBlinqx Connect
@@ -30,8 +32,21 @@ uit `Blinqx-VH-wijzigingen-was-wordt-v2.xlsx` doorgevoerd (zie `WIJZIGINGEN.md`)
 
 ## Gebruik
 
-Open `index.html` — elke brochure zit in een eigen tabblad, met een knop om die
-brochure te printen of los te openen. De losse bestanden zijn ook direct te openen.
+Open `index.html`. Links staan de brochures gegroepeerd (Overzicht, Hypotheek, Verzekering,
+Compleet & CRM, Partners), met zoekveld en paginatelling. Bovenaan de viewer: vorige/volgende,
+**Link** (kopieert een deeplink), **Los openen** en **Print / PDF**.
+
+- **Deeplinks:** elke brochure heeft een eigen adres, bijv. `…/blinqx-brochures/#vcn-partner`.
+  De terugknop van de browser werkt tussen brochures.
+- **Printen** opent de brochure in een nieuw venster en start daar het printvenster. Dat werkt
+  ook als de overzichtspagina in een iframe staat (bijv. Google Sites). Sta pop-ups toe.
+- **Sneltoetsen:** `/` zoeken, `[` en `]` vorige/volgende, pijltjes in de lijst.
+- Op mobiel zit de lijst achter de knop **Brochures**.
+
+Nieuwe brochure toevoegen: bestand in de root zetten en één regel toevoegen aan `GROUPS`
+bovenin het script van `index.html` (bestandsnaam zonder `.html`, soort, titel, pagina's).
+
+De losse bestanden zijn ook direct te openen.
 
 ## Publiceren op GitHub Pages
 
